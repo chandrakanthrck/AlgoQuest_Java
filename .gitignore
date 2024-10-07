@@ -1,0 +1,78 @@
+# Ignore compiled class files
+*.class
+
+# Ignore log files
+*.log
+
+# Ignore BlueJ files
+*.ctxt
+
+# Ignore temporary files created by operating systems or IDEs
+*~
+*.swp
+*.DS_Store
+
+# Ignore build directories
+bin/
+out/
+build/
+
+# Ignore IntelliJ IDEA files
+.idea/
+*.iml
+*.iws
+
+# Ignore Eclipse project files
+.classpath
+.project
+.settings/
+
+# Ignore NetBeans project files
+nbproject/private/
+build/
+nbbuild/
+dist/
+nbdist/
+.nb-gradle/
+
+# Ignore Maven target directory
+target/
+
+# Ignore Gradle build directories and files
+.gradle/
+build/
+
+# Ignore generated JARs, WARs, and other packages
+*.jar
+*.war
+*.ear
+
+# Ignore dependency directories
+lib/
+
+# Ignore generated coverage reports and other reports
+*.html
+*.xml
+*.exec
+*.out
+
+# Ignore personal config files
+*.env
+*.properties.local
+
+# Ignore VSCode project files
+.vscode/
+
+# Ignore temporary files created by IDEs
+*.tmp
+*.bak
+*.backup
+*.recommenders
+
+# Ignore compiled static analysis reports
+*.findbugs
+*.pmd
+*.checkstyle
+
+# Ignore test results
+test-output/
