@@ -1,5 +1,14 @@
 package Island_matrix_traversal;
 
+/*
+Problem 1: Number of Islands
+This is a foundational problem where you need to count the number of islands in a
+binary matrix (0 represents water, and 1 represents land).
+
+Problem Statement
+Given a 2D grid, each cell is either '1' (land) or '0' (water). An island is a group of adjacent '1's
+connected horizontally or vertically. You may assume all four edges of the grid are surrounded by water.
+ */
 public class IslandCounter {
     public int numsIsIsland(char[] [] grid){
         if(grid == null || grid.length == 0){
