@@ -11,6 +11,7 @@
 *~
 *.swp
 *.DS_Store
+Thumbs.db  # For Windows OS
 
 # Ignore build directories
 bin/
@@ -76,3 +77,9 @@ lib/
 
 # Ignore test results
 test-output/
+
+# Ignore macOS specific file
+.DS_Store
+
+# Ignore Windows-specific file
+Thumbs.db
