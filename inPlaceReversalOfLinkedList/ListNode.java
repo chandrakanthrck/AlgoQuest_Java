@@ -1,2 +1,9 @@
-package InPlaceReversalOfLinkedList;public class ListNode {
+package inPlaceReversalOfLinkedList;
+
+class ListNode {
+    int val;
+    ListNode next;
+    ListNode(int val) {
+        this.val = val;
+    }
 }
