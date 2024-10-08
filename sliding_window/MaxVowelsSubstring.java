@@ -9,27 +9,22 @@ then slide the window and update the count.
 public class MaxVowelsSubstring {
     public static int maxVowels(String s, int k) {
         int maxVowels = 0, currentVowels = 0;
-
-        // Check the first window of size `k`
-        for (int i = 0; i < k; i++) {
-            if (isVowel(s.charAt(i))) {
+        for(int i = 0; i < k; i++){
+            if(isVowel(s.charAt(i))){
                 currentVowels++;
             }
         }
         maxVowels = currentVowels;
-
-        // Slide the window across the string
-        for (int i = k; i < s.length(); i++) {
-            if (isVowel(s.charAt(i))) {
+        for(int i = k; i < s.length(); i++){
+            if(isVowel(s.charAt(i))){
                 currentVowels++;
             }
-            if (isVowel(s.charAt(i - k))) {
+            if(isVowel(s.charAt(i-k))){
                 currentVowels--;
             }
             maxVowels = Math.max(maxVowels, currentVowels);
         }
-
-        return maxVowels;
+        return  maxVowels;
     }
 
     private static boolean isVowel(char c) {

@@ -1,19 +1,15 @@
 package kWayMerge;
 
+// Node class to represent the element, its originating array, and the index in that array
 public class Node {
-    public int value;
-    int row;
-    int col;  // Optional: Can be used for 2D structures like matrix, or can be ignored
+    public int value;  // Value of the element
+    public int arrayIndex;  // The array from which the element came
+    public int elementIndex;  // The index of the element within its array
 
-    // Constructor for handling 1D structures like linked lists
-    public Node(int value) {
+    // Constructor
+    public Node(int value, int arrayIndex, int elementIndex) {
         this.value = value;
-    }
-
-    // Constructor for handling 2D structures like matrix or arrays of lists
-    public Node(int value, int row, int col) {
-        this.value = value;
-        this.row = row;
-        this.col = col;
+        this.arrayIndex = arrayIndex;
+        this.elementIndex = elementIndex;
     }
 }

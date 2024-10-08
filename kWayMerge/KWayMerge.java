@@ -1,8 +1,7 @@
 package kWayMerge;
 
-import kWayMerge.Node;
-
 import java.util.PriorityQueue;
+import kWayMerge.Node;
 
 public class KWayMerge {
 

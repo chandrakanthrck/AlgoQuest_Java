@@ -13,24 +13,20 @@ public class LongestOnesAfterReplacement {
         int left = 0;
         int maxLength = 0;
         int zeroCount = 0;
-
-        // Expand the window by moving the right pointer
-        for (int right = 0; right < nums.length; right++) {
-            if (nums[right] == 0) {
+        for(int right = 0; right < nums.length; right++){
+            if(nums[right] == 0){
                 zeroCount++;
             }
-
-            // Shrink the window when `zeroCount` exceeds `k`
-            while (zeroCount > k) {
-                if (nums[left] == 0) {
+            while(zeroCount>k){
+                if(nums[left] == 0){
                     zeroCount--;
                 }
                 left++;
             }
-
+            //right - left + 1 calculates the current length
+            //basically to keep the longest subarray
             maxLength = Math.max(maxLength, right - left + 1);
         }
-
         return maxLength;
     }
 

@@ -11,20 +11,15 @@ that comes into the window and removing the old element that goes out.
 public class MaxSumSubarray {
     public static int maxSumSubarray(int[] nums, int k) {
         int maxSum = 0, windowSum = 0;
-
-        // Calculate the sum of the first window
-        for (int i = 0; i < k; i++) {
+        for(int i = 0; i<k; i++){
             windowSum += nums[i];
         }
-
         maxSum = windowSum;
-
-        // Slide the window, adjusting the sum
-        for (int i = k; i < nums.length; i++) {
-            windowSum += nums[i] - nums[i - k];  // Slide window by adding new and removing old
+        for(int i = k; i<nums.length; i++){
+            //Important: instead of recalculating from scratch use this
+            windowSum-=nums[i] - nums[i-k];
             maxSum = Math.max(maxSum, windowSum);
         }
-
         return maxSum;
     }
 

@@ -12,21 +12,16 @@ then shrink the window from the left while it still satisfies the condition.
 public class SmallestSubarrayWithSum {
     public static int minSubArrayLen(int s, int[] nums) {
         int minLength = Integer.MAX_VALUE;
-        int windowSum = 0;
         int left = 0;
-
-        // Expand the window by moving the right pointer
-        for (int right = 0; right < nums.length; right++) {
-            windowSum += nums[right];
-
-            // Shrink the window from the left if the sum is greater than or equal to `s`
-            while (windowSum >= s) {
-                minLength = Math.max(minLength, right - left + 1);
-                windowSum -= nums[left];
-                left++;  // Shrink the window
+        int windowSum = 0;
+        for(int right = 0; right<nums.length;right++){
+            windowSum+=nums[right];
+            while(windowSum>=s){
+                minLength = Math.min(minLength, right - left + 1);
+                windowSum-=nums[left];
+                left++;
             }
         }
-
         return minLength == Integer.MAX_VALUE ? 0 : minLength;
     }
 
