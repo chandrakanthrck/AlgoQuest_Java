@@ -8,9 +8,9 @@ public class MergeKSortedLists {
         PriorityQueue<Node> minHeap = new PriorityQueue<>((a, b) -> a.value - b.value);
 
         // Add the head of each list to the minHeap
-        for (ListNode list : lists) {
-            if (list != null) {
-                minHeap.add(new Node(list.val, 0, 0));  // Only use value for lists
+        for (int i = 0; i < lists.length; i++) {
+            if (lists[i] != null) {
+                minHeap.add(new Node(lists[i].val, i, 0));  // Use arrayIndex (i) for the list index
             }
         }
 
@@ -23,13 +23,13 @@ public class MergeKSortedLists {
             current.next = new ListNode(node.value);
             current = current.next;
 
-            if (lists[node.row].next != null) {
-                lists[node.row] = lists[node.row].next;
-                minHeap.add(new Node(lists[node.row].val, node.row, 0));
+            // Add the next element from the same list, if available
+            if (lists[node.arrayIndex].next != null) {
+                lists[node.arrayIndex] = lists[node.arrayIndex].next;
+                minHeap.add(new Node(lists[node.arrayIndex].val, node.arrayIndex, 0));  // Use arrayIndex to track the list
             }
         }
 
         return dummy.next;
     }
 }
-

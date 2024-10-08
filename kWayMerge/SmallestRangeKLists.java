@@ -1,7 +1,5 @@
 package kWayMerge;
 
-import kWayMerge.Node;
-
 import java.util.PriorityQueue;
 import java.util.List;
 
@@ -31,9 +29,9 @@ public class SmallestRangeKLists {
             }
 
             // Add the next element from the same list
-            if (node.col + 1 < nums.get(node.row).size()) {
-                int nextVal = nums.get(node.row).get(node.col + 1);
-                minHeap.add(new Node(nextVal, node.row, node.col + 1));
+            if (node.elementIndex + 1 < nums.get(node.arrayIndex).size()) {
+                int nextVal = nums.get(node.arrayIndex).get(node.elementIndex + 1);
+                minHeap.add(new Node(nextVal, node.arrayIndex, node.elementIndex + 1));
                 max = Math.max(max, nextVal);
             }
         }
