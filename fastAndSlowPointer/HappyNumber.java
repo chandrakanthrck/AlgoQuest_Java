@@ -14,20 +14,25 @@ public class HappyNumber {
     public static boolean isHappy(int n) {
         int slow = n;
         int fast = n;
-
-        do {
-            slow = findSquareSum(slow);  // Move slow pointer one step
-            fast = findSquareSum(findSquareSum(fast));  // Move fast pointer two steps
-        } while (slow != fast);  // If they meet, a cycle is detected
-
-        return slow == 1;  // Check if the cycle includes 1 (happy number)
+        do{
+            slow = findSquareSum(slow);
+            fast = findSquareSum(findSquareSum(fast));
+            if(slow == 1 || fast == 1){
+                return true;
+            }
+        }while(slow!=fast);
+        return false;
     }
 
     private static int findSquareSum(int n) {
         int sum = 0;
+        //seperate both the digits in n and square them and add them
         while (n > 0) {
+            //extract last digit
             int digit = n % 10;
+            //square it
             sum += digit * digit;
+            //remove the last digit
             n /= 10;
         }
         return sum;

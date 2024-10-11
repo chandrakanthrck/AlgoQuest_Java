@@ -19,30 +19,23 @@ public class StartOfCycle {
     }
 
     public static ListNode detectCycle(ListNode head) {
-        if (head == null || head.next == null) {
+        if(head == null || head.next == null){
             return null;
         }
-
         ListNode slow = head;
         ListNode fast = head;
-
-        // First, detect the cycle using fast and slow pointers
-        while (fast != null && fast.next != null) {
+        while(fast!=null && fast.next!=null){
             slow = slow.next;
             fast = fast.next.next;
-
-            if (slow == fast) {  // Cycle detected
-                ListNode pointer = head;
-
-                // Move both pointers one step at a time to find the start of the cycle
-                while (pointer != slow) {
-                    pointer = pointer.next;
+            if(slow == fast){
+                slow = head;
+                while(slow!=fast){
                     slow = slow.next;
+                    fast= fast.next;
                 }
-                return pointer;  // Starting point of the cycle
+                return slow;
             }
         }
-
-        return null;  // No cycle
+        return null;
     }
 }

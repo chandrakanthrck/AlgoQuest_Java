@@ -10,41 +10,35 @@ comes back to the starting point to measure the length of the cycle.
 
  */
 public class CycleLength {
-    static class ListNode {
+
+    static class ListNode{
         int val;
         ListNode next;
-        ListNode(int x) {
-            val = x;
+        ListNode(int x){
+            x = val;
             next = null;
         }
     }
 
-    public static int findCycleLength(ListNode head) {
+    public static int findCycle(ListNode head){
         ListNode slow = head;
         ListNode fast = head;
-
-        // Detect the cycle
-        while (fast != null && fast.next != null) {
+        while(fast != null && fast.next != null){
             slow = slow.next;
             fast = fast.next.next;
-
-            if (slow == fast) {
+            if(slow == fast){
                 return calculateLength(slow);
             }
         }
-
-        return 0;  // No cycle
+        return 0;
     }
-
-    private static int calculateLength(ListNode slow) {
+    public static int calculateLength(ListNode slow){
         ListNode current = slow;
         int length = 0;
-
-        do {
+        do{
             current = current.next;
             length++;
-        } while (current != slow);
-
+        }while(current!= slow);
         return length;
     }
 }

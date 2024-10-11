@@ -18,14 +18,13 @@ import java.util.*;
 public class NumberOfDistinctIslands {
     public int numDistinctIslands(int[][] grid) {
         Set<String> shapes = new HashSet<>();
-        int rows = grid.length;
-        int cols = grid[0].length;
-
-        for (int i = 0; i < rows; i++) {
-            for (int j = 0; j < cols; j++) {
-                if (grid[i][j] == 1) {
+        int row = grid.length;
+        int col = grid[0].length;
+        for(int i = 0; i < row; i++){
+            for(int j = 0; j< col; j++){
+                if(grid[i][j] == 1){
                     StringBuilder shape = new StringBuilder();
-                    dfs(grid, i, j, shape, "S"); // Start
+                    dfs(grid, i, j, shape, "S");
                     shapes.add(shape.toString());
                 }
             }

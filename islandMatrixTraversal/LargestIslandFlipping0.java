@@ -21,14 +21,17 @@ Keep track of the maximum island size found.
 public class LargestIslandFlipping0 {
     public int largestIsland(int[][] grid) {
         int n = grid.length;
+        //unique index for island, increament index by 1 for each island
         int index = 2; // Start indexing from 2 to differentiate from 0 and 1
+        //The new island's size will be the sum of the areas of all unique neighboring islands plus one
+        //for the flipped cell itself.
         Map<Integer, Integer> areaMap = new HashMap<>();
         int maxArea = 0;
 
         // Step 1: DFS to label islands with unique index and calculate areas
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < n; j++) {
-                if (grid[i][j] == 1) {
+        for(int i = 0; i<n; i++){
+            for(int j = 0; j<n; j++){
+                if(grid[i][j] == '1'){
                     int area = dfs(grid, i, j, index);
                     areaMap.put(index, area);
                     maxArea = Math.max(maxArea, area);
@@ -38,18 +41,17 @@ public class LargestIslandFlipping0 {
         }
 
         // Step 2: Try flipping each zero and calculate potential island size
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < n; j++) {
-                if (grid[i][j] == 0) {
-                    Set<Integer> neighborIslands = new HashSet<>();
-                    if (i > 0 && grid[i - 1][j] > 1) neighborIslands.add(grid[i - 1][j]);
-                    if (i < n - 1 && grid[i + 1][j] > 1) neighborIslands.add(grid[i + 1][j]);
-                    if (j > 0 && grid[i][j - 1] > 1) neighborIslands.add(grid[i][j - 1]);
-                    if (j < n - 1 && grid[i][j + 1] > 1) neighborIslands.add(grid[i][j + 1]);
-
-                    int newArea = 1; // The flipped cell
-                    for (int idx : neighborIslands) {
-                        newArea += areaMap.get(idx);
+        for(int i =0; i<n; i++){
+            for(int j = 0; j<n; j++){
+                if(grid[i][j] == 0){
+                    Set<Integer> neighborIsland = new HashSet<>();
+                    if(i>0 && grid[i-1][j] >1) neighborIsland.add(grid[i-1][j]);
+                    if(i<n-1 && grid[i+1][j] >1) neighborIsland.add(grid[i+1][j]);
+                    if(j>0 && grid[i][j-1]>1) neighborIsland.add(grid[i][j-1]);
+                    if(j<n-1 && grid[i][j+1]>1) neighborIsland.add(grid[i][j+1]);
+                    int newArea = 1;
+                    for(int idx: neighborIsland){
+                        newArea+=areaMap.get(idx);
                     }
                     maxArea = Math.max(maxArea, newArea);
                 }

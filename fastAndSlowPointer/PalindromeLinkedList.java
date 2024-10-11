@@ -19,38 +19,31 @@ public class PalindromeLinkedList {
     }
 
     public static boolean isPalindrome(ListNode head) {
-        if (head == null) return true;
-
-        // Step 1: Find the middle of the list
+        if (head == null) return false;
         ListNode slow = head;
         ListNode fast = head;
-
-        while (fast != null && fast.next != null) {
+        while(fast!=null && fast.next!=null){
             slow = slow.next;
             fast = fast.next.next;
         }
 
-        // Step 2: Reverse the second half of the list
         ListNode prev = null;
-        while (slow != null) {
+        while(slow!=null){
             ListNode nextNode = slow.next;
             slow.next = prev;
             prev = slow;
             slow = nextNode;
         }
 
-        // Step 3: Compare both halves
         ListNode left = head;
-        ListNode right = prev; // Reversed second half
-
-        while (right != null) {
-            if (left.val != right.val) {
+        ListNode right = prev;
+        while(right!=null){
+            if(left.val != right.val){
                 return false;
             }
             left = left.next;
             right = right.next;
         }
-
         return true;
     }
 }

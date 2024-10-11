@@ -27,6 +27,6 @@ public class MiddleOfLinkedList {
             fast = fast.next.next;
         }
 
-        return slow;  // Slow is now pointing to the middle node
+        return slow;
     }
 }

@@ -19,6 +19,7 @@ public class NumberOfEnclaves {
         int cols = grid[0].length;
 
         // Step 1: Mark all land cells connected to the boundary
+
         for (int i = 0; i < rows; i++) {
             if (grid[i][0] == 1) {
                 dfs(grid, i, 0);

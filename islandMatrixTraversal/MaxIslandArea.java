@@ -10,14 +10,14 @@ You may assume all four edges of the grid are surrounded by water.
 public class MaxIslandArea {
     public int maxAreaOfIsland(int[][] grid) {
         int maxArea = 0;
-        for (int i = 0; i < grid.length; i++) {
-            for (int j = 0; j < grid[0].length; j++) {
-                if (grid[i][j] == 1) {
+        for(int i = 0; i < grid.length; i++){
+            for(int j = 0; j< grid[0].length; j++){
+                if(grid[i][j] == '1'){
                     maxArea = Math.max(maxArea, dfs(grid, i, j));
                 }
             }
         }
-        return maxArea;
+        return  maxArea;
     }
 
     private int dfs(int[][] grid, int i, int j) {
