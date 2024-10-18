@@ -98,7 +98,6 @@ This program demonstrates three types of Depth-First Search (DFS) traversals in 
 
 public class TreeDFS {
 
-    // Inorder traversal (Left, Root, Right)
     public void inorder(TreeNode root) {
         if (root == null) return;
         inorder(root.left);
@@ -106,7 +105,6 @@ public class TreeDFS {
         inorder(root.right);
     }
 
-    // Preorder traversal (Root, Left, Right)
     public void preorder(TreeNode root) {
         if (root == null) return;
         System.out.print(root.val + " ");
@@ -114,7 +112,6 @@ public class TreeDFS {
         preorder(root.right);
     }
 
-    // Postorder traversal (Left, Right, Root)
     public void postorder(TreeNode root) {
         if (root == null) return;
         postorder(root.left);
