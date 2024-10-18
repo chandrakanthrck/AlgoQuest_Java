@@ -28,7 +28,8 @@ public class KWayMerge {
 
             // Add the next element from the same array if it exists
             if (node.elementIndex + 1 < arrays[node.arrayIndex].length) {
-                minHeap.add(new Node(arrays[node.arrayIndex][node.elementIndex + 1], node.arrayIndex, node.elementIndex + 1));
+                minHeap.add(new Node(arrays[node.arrayIndex][node.elementIndex + 1],
+                        node.arrayIndex, node.elementIndex + 1));
             }
         }
 

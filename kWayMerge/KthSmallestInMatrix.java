@@ -20,7 +20,8 @@ public class KthSmallestInMatrix {
 
             // If there's another element in the same row, add it to the heap
             if (currentNode.elementIndex + 1 < matrix[0].length) {
-                minHeap.add(new Node(matrix[currentNode.arrayIndex][currentNode.elementIndex + 1], currentNode.arrayIndex, currentNode.elementIndex + 1));
+                minHeap.add(new Node(matrix[currentNode.arrayIndex][currentNode.elementIndex + 1],
+                        currentNode.arrayIndex, currentNode.elementIndex + 1));
             }
         }
 
