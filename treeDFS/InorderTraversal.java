@@ -87,7 +87,7 @@ public class InorderTraversal {
     private void inorderHelper(TreeNode root, List<Integer> result) {
         if (root == null) return;
         inorderHelper(root.left, result);
-        result.add(root.val);  // Process the current node
+        result.add(root.val);
         inorderHelper(root.right, result);
     }
 }
