@@ -83,28 +83,15 @@ public class TreeBFS {
 
     // Perform Breadth-First Search (BFS) on the tree
     public void bfs(TreeNode root) {
-        if (root == null) {
-            System.out.println("Tree is empty");
+        if(root == null){
             return;
         }
-
         Queue<TreeNode> queue = new LinkedList<>();
-        queue.add(root);  // Start with the root node
-
-        while (!queue.isEmpty()) {
-            TreeNode current = queue.poll();  // Dequeue the front node
-
-            System.out.print(current.val + " ");  // Process the current node
-
-            // Enqueue left child
-            if (current.left != null) {
-                queue.add(current.left);
-            }
-
-            // Enqueue right child
-            if (current.right != null) {
-                queue.add(current.right);
-            }
+        queue.add(root);
+        while(!queue.isEmpty()){
+            TreeNode current = queue.poll();
+            if(current.left!=null) queue.offer(current.left);
+            if(current.right!=null) queue.offer(current.right);
         }
     }
 
