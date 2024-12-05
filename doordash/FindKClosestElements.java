@@ -5,9 +5,6 @@ import java.util.List;
 
 /*
 Find K Closest Elements
-Medium
-Topics
-Companies
 Given a sorted integer array arr, two integers k and x, return the k closest integers to x in the array.
 The result should also be sorted in ascending order.
 An integer a is closer to x than an integer b if:
@@ -42,6 +39,18 @@ When left == right, the window of size k starts at index left.
 Return the k elements from the starting position:
 
 Slice the array starting from left to left + k.
+
+Binary Search Steps:
+
+left = 0, right = 1 (arr.length - k = 5 - 4 = 1).
+mid = 0 + (1 - 0) / 2 = 0.
+Compare:
+|arr[mid] - x| = |1 - 3| = 2.
+|arr[mid + k] - x| = |5 - 3| = 2.
+Since distances are equal, keep the left boundary: right = mid.
+Result:
+
+The closest k = 4 elements starting from left = 0 are [1, 2, 3, 4].
  */
 public class FindKClosestElements {
     public List<Integer> findClosestElements(int[] arr, int k, int x) {
@@ -50,7 +59,7 @@ public class FindKClosestElements {
         while(left<right){
             int mid = left + (left + right)/2;
             // Compare the distances of arr[mid] and arr[mid + k] to x
-            if(Math.abs(arr[mid] - x) > Math.abs(arr[mid+k] - k)){
+            if(Math.abs(arr[mid] - x) > Math.abs(arr[mid+k] - x)){
                 left = mid + 1; // Move the left boundary rightward
             }else{
                 right = mid; // Keep the left boundary at mid or earlier
