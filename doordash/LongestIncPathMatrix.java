@@ -38,6 +38,7 @@ public class LongestIncPathMatrix {
         }
         return maxLength;
     }
+
     private int dfs(int[][] matrix, int i, int j, int[][] cache){
         if(cache[i][j]!=0) return cache[i][j]; //memoization
         int rows = matrix.length;
@@ -66,6 +67,5 @@ public class LongestIncPathMatrix {
 
         // Return the maximum path length for this cell
         return maxLength;
-
     }
 }
