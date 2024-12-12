@@ -34,14 +34,19 @@ class LongestCommonSubsequence {
         int n = text2.length();
 
         // Create a 2D DP array
+        //in this dp table, you are going to have 1st row and column set to 0
+        //it is to check the case when either of them is empty
         int[][] dp = new int[m + 1][n + 1];
 
         // Fill the DP table
         for (int i = 1; i <= m; i++) {
             for (int j = 1; j <= n; j++) {
                 if (text1.charAt(i - 1) == text2.charAt(j - 1)) {
-                    dp[i][j] = dp[i - 1][j - 1] + 1; // Characters match
+                    //updating the dp table by 1 when we have the match
+                    //incrementing the current position of dp table by 1
+                    dp[i][j] = dp[i - 1][j - 1] + 1;
                 } else {
+                    //when characters don't match, we simply get the values from the previous and not update
                     dp[i][j] = Math.max(dp[i - 1][j], dp[i][j - 1]); // Characters don't match
                 }
             }
