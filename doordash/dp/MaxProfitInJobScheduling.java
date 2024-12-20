@@ -9,25 +9,10 @@ Sort Jobs:
 Sort the jobs by their endTime to process them in the order they finish.
 Binary Search for Non-Overlapping Jobs:
 
-Use binary search to find the most recent job that doesn’t overlap with the current job. This helps quickly determine which jobs can be included in the profit calculation without overlap.
-Dynamic Programming:
-
-Use a dp array where dp[i] represents the maximum profit obtainable by considering the first i jobs.
-For each job, decide whether to include it:
-If included, add its profit to the maximum profit of the last non-overlapping job.
-If excluded, carry forward the maximum profit from the previous job.
-Optimization:
-
-Use a sorted array of job end times to perform binary search efficiently.
-Algorithm
-Combine startTime, endTime, and profit into a single array of jobs.
-Sort the jobs based on their endTime.
-Use a dp array to store the maximum profit at each step.
-For each job:
-Use binary search to find the most recent non-overlapping job.
-Calculate the profit if the current job is included and compare it with the profit if the current job is excluded.
-Update dp[i] accordingly.
-Return the last value in the dp array, which represents the maximum profit considering all jobs.
+as we do not want over lapping what we are going to do is whenever there is an overlap with the 2 compared values
+we will only record the one which has the maximum value
+whenever there is no overlap, we are going to add the current value to the previous recorded maximum value
+and update the maximum value by the current total
  */
 public class MaxProfitInJobScheduling {
     public int jobScheduling(int[] startTime, int[] endTime, int[] profit) {
