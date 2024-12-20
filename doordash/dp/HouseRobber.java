@@ -31,6 +31,8 @@ public class HouseRobber {
         int prev2 = 0; // dp[i-2]
         int prev1 = 0; // dp[i-1]
 
+        //we are comparing prev1, prev2+num because the condition of the problem is that
+        //you cannot rob 2 adjacent houses.
         for (int num : nums) {
             int current = Math.max(prev1, prev2 + num);
             prev2 = prev1;
